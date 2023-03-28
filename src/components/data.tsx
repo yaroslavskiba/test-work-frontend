@@ -1,15 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import data from '../data/data';
 import config from '../data/config';
 
 const Data = () => {
   const selectLists = data.list;
+  const selectMaterial = config.material;
   const [width, length] = config.size;
   const [widthInput, setWidthInput] = useState(String(width.min));
   const [lengthInput, setLengthInput] = useState(String(length.min));
   const [errorInputWidth, setErrorInputWidth] = useState('');
   const [errorInputLength, setErrorInputLength] = useState('');
+  const [selectMaterialState, setSelectMaterialState] = useState('start');
+  const [selectListState, setSelectListState] = useState('');
 
+  console.log(selectMaterialState);
   const handleWidth = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWidthInput(e.target.value);
     const current = Number(e.target.value);
@@ -33,19 +38,48 @@ const Data = () => {
       setErrorInputLength('');
     }
   };
+
+  const handleSelectMaterial = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (e.target.value === 'Пластик') {
+      setSelectMaterialState('plastic');
+      return;
+    }
+    setSelectMaterialState('metal');
+  };
+
+  const handleSelectList = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectListState(e.target.value);
+  };
+
   return (
     <form className="form-input">
       <p className="text">Выберете материал:</p>
-      <select className="data-select">
+      <select className="data-select" onChange={handleSelectMaterial}>
         <option className="data-select-item" value="start">
           Выберите материал...
         </option>
-        {selectLists.map((listItem) => (
-          <option className="data-select-item" key={listItem.width + '-' + listItem.material} value={listItem.name}>
+        {selectMaterial.map((listItem, index) => (
+          <option className="data-select-item" key={listItem.key + '-' + index} value={listItem.name}>
             {listItem.name}
           </option>
         ))}
       </select>
+      {selectMaterialState !== 'start' ? (
+        <select className="data-select" onChange={handleSelectList}>
+          <option className="data-select-item" value="start">
+            Выберите изделие...
+          </option>
+          {selectLists
+            .filter((filterItem) => {
+              return filterItem.material === selectMaterialState;
+            })
+            .map((listItem, index) => (
+              <option className="data-select-item" key={listItem.width + '-' + index} value={listItem.name}>
+                {listItem.name}
+              </option>
+            ))}
+        </select>
+      ) : null}
       <p className="text">Ширина:</p>
       {errorInputWidth === '' ? null : <p className="error-input">{errorInputWidth}</p>}
       <input className="input-text" type="text" onChange={handleWidth} value={widthInput} />
