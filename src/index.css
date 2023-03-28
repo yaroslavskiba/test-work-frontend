@@ -94,6 +94,7 @@ ul li {
   justify-content: center;
 }
 .main .data .form-input {
+  padding: 15px 0;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -182,6 +183,18 @@ ul li {
 }
 .main .result {
   flex: 0 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .result .result-table {
+  border: 1px solid #676767;
+  border-radius: 5px;
+}
+.main .result .result-table .result-table-item {
+  padding: 5px;
+  border: 1px solid #676767;
+  border-radius: 5px;
 }
 
 .footer {
@@ -191,6 +204,14 @@ ul li {
   margin: 0;
   border-top: 1px solid #676767;
   height: 65px;
+}
+
+.button-calculate {
+  background-color: inherit;
+  padding: 5px 10px;
+  border: 1px solid #676767;
+  border-radius: 5px;
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=index.css.map */
