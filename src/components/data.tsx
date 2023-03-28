@@ -4,17 +4,23 @@ import data from '../data/data';
 import config from '../data/config';
 
 const Data = () => {
-  const selectLists = data.list;
-  const selectMaterial = config.material;
-  const [width, length] = config.size;
-  const [widthInput, setWidthInput] = useState(String(width.min));
-  const [lengthInput, setLengthInput] = useState(String(length.min));
-  const [errorInputWidth, setErrorInputWidth] = useState('');
-  const [errorInputLength, setErrorInputLength] = useState('');
-  const [selectMaterialState, setSelectMaterialState] = useState('start');
-  const [selectListState, setSelectListState] = useState('');
+  const selectLists = data.list; // Дата
+  const selectMaterial = config.material; // Конфиг
+  const selectFrame = config.frame; // Прочность
+  const [width, length] = config.size; //Размеры для ограничений ввода
 
-  console.log(selectMaterialState);
+  const [widthInput, setWidthInput] = useState(String(width.min)); //значение инпута ширины
+  const [lengthInput, setLengthInput] = useState(String(length.min)); // значение инпута длины
+
+  const [errorInputWidth, setErrorInputWidth] = useState(''); // Ошибка поля ширины
+  const [errorInputLength, setErrorInputLength] = useState(''); // Ошибка поля длины
+
+  const [selectMaterialState, setSelectMaterialState] = useState('start'); // выбор материала для фильтрации
+  const [selectListState, setSelectListState] = useState(''); // выбранный материал
+
+  const [selectRadioState, setSelectRadioState] = useState('none'); // Состояние для хранения выбранной кнопки прочности
+
+  // Функиция обработки значения в поле ввода ширины
   const handleWidth = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWidthInput(e.target.value);
     const current = Number(e.target.value);
@@ -27,6 +33,7 @@ const Data = () => {
     }
   };
 
+  // Функиция обработки значения в поле ввода длины
   const handleLength = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLengthInput(e.target.value);
     const current = Number(e.target.value);
@@ -39,6 +46,7 @@ const Data = () => {
     }
   };
 
+  // Функиция выборки материала для фильтрации
   const handleSelectMaterial = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value === 'Пластик') {
       setSelectMaterialState('plastic');
@@ -47,8 +55,14 @@ const Data = () => {
     setSelectMaterialState('metal');
   };
 
+  // Функиция сохранения выбранного изделия
   const handleSelectList = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectListState(e.target.value);
+  };
+
+  // Функиция выбора параметра прочности изделия
+  const handleSelectRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectRadioState(e.target.value);
   };
 
   return (
@@ -86,6 +100,49 @@ const Data = () => {
       <p className="text">Длина:</p>
       {errorInputLength === '' ? null : <p className="error-input">{errorInputLength}</p>}
       <input className="input-text" type="text" onChange={handleLength} value={lengthInput} />
+      <p className="text">Прочность:</p>
+      <div className="radio-container">
+        <label className="radio-button">
+          <input
+            type="radio"
+            value="none"
+            checked={selectRadioState === 'none'}
+            onChange={(e) => handleSelectRadio(e)}
+          />
+          <span className="checkmark"></span>
+          Не выбрано
+        </label>
+        <label className="radio-button">
+          <input
+            type="radio"
+            value={selectFrame[0].key}
+            checked={selectRadioState === selectFrame[0].key}
+            onChange={(e) => handleSelectRadio(e)}
+          />
+          <span className="checkmark"></span>
+          {selectFrame[0].name}
+        </label>
+        <label className="radio-button">
+          <input
+            type="radio"
+            value={selectFrame[1].key}
+            checked={selectRadioState === selectFrame[1].key}
+            onChange={(e) => handleSelectRadio(e)}
+          />
+          <span className="checkmark"></span>
+          {selectFrame[1].name}
+        </label>
+        <label className="radio-button">
+          <input
+            type="radio"
+            value={selectFrame[2].key}
+            checked={selectRadioState === selectFrame[2].key}
+            onChange={(e) => handleSelectRadio(e)}
+          />
+          <span className="checkmark"></span>
+          {selectFrame[2].name}
+        </label>
+      </div>
     </form>
   );
 };
