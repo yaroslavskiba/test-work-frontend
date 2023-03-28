@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import data from './data/data';
-import config from './data/config';
+import Data from './components/data';
 import './index.css';
 
 const App = () => {
@@ -12,11 +12,7 @@ const App = () => {
       </header>
       <main className="main">
         <div className="data">
-          <form>
-            <select>
-              <option value="">Select material...</option>
-            </select>
-          </form>
+          <Data />
         </div>
         <div className="result"></div>
       </main>
