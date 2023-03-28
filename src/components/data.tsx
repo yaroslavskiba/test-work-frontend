@@ -34,7 +34,8 @@ const Data = () => {
     }
   };
   return (
-    <form>
+    <form className="form-input">
+      <p className="text">Выберете материал:</p>
       <select className="data-select">
         <option className="data-select-item" value="start">
           Выберите материал...
@@ -45,12 +46,12 @@ const Data = () => {
           </option>
         ))}
       </select>
-      <p className="text">Ширина</p>
-      {errorInputWidth === '' ? null : <p className="errorInput">{errorInputWidth}</p>}
-      <input type="text" onChange={handleWidth} value={widthInput} />
-      <p className="text">Длина</p>
-      {errorInputLength === '' ? null : <p className="errorInput">{errorInputLength}</p>}
-      <input type="text" onChange={handleLength} value={lengthInput} />
+      <p className="text">Ширина:</p>
+      {errorInputWidth === '' ? null : <p className="error-input">{errorInputWidth}</p>}
+      <input className="input-text" type="text" onChange={handleWidth} value={widthInput} />
+      <p className="text">Длина:</p>
+      {errorInputLength === '' ? null : <p className="error-input">{errorInputLength}</p>}
+      <input className="input-text" type="text" onChange={handleLength} value={lengthInput} />
     </form>
   );
 };

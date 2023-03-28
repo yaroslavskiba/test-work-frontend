@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 html,
 body {
-  color: #e3e2ed;
-  background-color: #6f6f7f;
+  color: #324040;
+  background-color: #deefef;
   width: 100vw;
   height: 100vh;
   font-weight: 400;
@@ -58,6 +59,93 @@ ul li {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+.header .header-text {
+  border: 1px solid #676767;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.main {
+  margin: 0 15px;
+  flex: 1 1 auto;
+  display: flex;
+}
+.main .data {
+  flex: 0 1 50%;
+  border-right: 1px solid #676767;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .data .form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+.main .data .form-input .data-select {
+  padding-bottom: 15px;
+  background-color: inherit;
+  border: 1px solid #676767;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 5px;
+  width: 250px;
+}
+.main .data .form-input .data-select .data-select-item {
+  background-color: inherit;
+  color: #deefef;
+  font-size: 16px;
+}
+.main .data .form-input .data-select .data-select-item:checked {
+  background-color: inherit;
+  color: #d9f2f2;
+}
+.main .data .form-input .input-text {
+  padding-bottom: 15px;
+  width: 65px;
+  height: 35px;
+  padding: 5px;
+  font-size: 18px;
+  background-color: inherit;
+  border: 1px solid #676767;
+  border-radius: 5px;
+}
+.main .data .form-input .error-input {
+  width: max-content;
+  background-color: #ff4b3c;
+  padding: 3px 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+  color: #deefef;
+}
+.main .result {
+  flex: 0 1 50%;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-top: 1px solid #676767;
+  height: 65px;
 }
 
 /*# sourceMappingURL=index.css.map */
