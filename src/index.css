@@ -87,131 +87,86 @@ ul li {
   display: flex;
 }
 .main .data {
+  gap: 15px;
   flex: 0 1 50%;
   border-right: 1px solid #676767;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.main .data .form-input {
-  padding: 15px 0;
-  display: flex;
   flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-.main .data .form-input .data-select {
-  padding-bottom: 15px;
-  background-color: inherit;
-  border: 1px solid #676767;
-  border-radius: 5px;
-  font-size: 18px;
-  padding: 5px;
-  width: 250px;
-}
-.main .data .form-input .data-select .data-select-item {
-  background-color: inherit;
-  color: #deefef;
-  font-size: 16px;
-}
-.main .data .form-input .data-select .data-select-item:checked {
-  background-color: inherit;
-  color: #d9f2f2;
-}
-.main .data .form-input .input-text {
-  padding-bottom: 15px;
-  width: 65px;
-  height: 35px;
-  padding: 5px;
-  font-size: 18px;
-  background-color: inherit;
-  border: 1px solid #676767;
-  border-radius: 5px;
-}
-.main .data .form-input .error-input {
-  width: max-content;
-  background-color: #ff4b3c;
-  padding: 3px 5px;
-  margin: 5px 0;
-  border-radius: 5px;
-  color: #deefef;
-}
-.main .data .form-input .radio-container {
-  display: flex;
-  gap: 15px;
-  padding: 15px;
-  border-radius: 5px;
-  border: 1px solid #676767;
   align-items: center;
   justify-content: center;
-}
-.main .data .form-input .radio-container .radio-button {
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  font-size: 16px;
-  user-select: none;
-}
-.main .data .form-input .radio-container .radio-button input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-.main .data .form-input .radio-container .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: inherit;
-  border: 2px solid #676767;
-  border-radius: 50%;
-}
-.main .data .form-input .radio-container .radio-button input:checked ~ .checkmark:after {
-  display: block;
-}
-.main .data .form-input .radio-container .radio-button .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-  top: 4px;
-  left: 4px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background-color: #324040;
 }
 .main .result {
   flex: 0 1 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.main .result .result-table {
-  border: 1px solid #676767;
-  border-radius: 5px;
-}
-.main .result .result-table .result-table-item {
-  padding: 5px;
-  border: 1px solid #676767;
-  border-radius: 5px;
 }
 
 .footer {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin: 0;
   border-top: 1px solid #676767;
   height: 65px;
 }
 
-.button-calculate {
-  background-color: inherit;
-  padding: 5px 10px;
-  border: 1px solid #676767;
-  border-radius: 5px;
+.input-radio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.input-radio-container .label {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.input-radio-container .label .input-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.input-radio-container .label .radio-label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
   font-size: 18px;
+}
+.input-radio-container .label .radio-label:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #676767;
+  border-radius: 50%;
+  background-color: inherit;
+}
+.input-radio-container .label .radio-label:hover:before {
+  border-color: #324040;
+}
+.input-radio-container .label .input-radio:checked + .radio-label:before {
+  border-color: #324040;
+  background-color: #324040;
+  animation: actiive 1s infinite;
+}
+
+@keyframes actiive {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #676767;
+  }
+  70% {
+    transform: scale(0.5);
+    box-shadow: 0 0 0 3px #676767;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #676767;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

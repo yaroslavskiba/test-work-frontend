@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Data from './components/data';
-import Result from './components/result';
+import Data from './components/data/data';
 import './index.css';
 
 export type ResultData = {
@@ -16,8 +15,6 @@ export type ResultData = {
 };
 
 const App = () => {
-  const [result, setResult] = useState<ResultData | null>(null);
-  console.log(result);
   return (
     <>
       <header className="header">
@@ -25,11 +22,9 @@ const App = () => {
       </header>
       <main className="main">
         <div className="data">
-          <Data setResult={setResult} />
+          <Data />
         </div>
-        <div className="result">
-          <Result result={result} />
-        </div>
+        <div className="result"></div>
       </main>
       <footer className="footer">
         <p className="footer-text">Павел Воробьёв</p>
