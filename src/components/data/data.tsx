@@ -4,20 +4,34 @@ import SelectMaterial from './select-material';
 import SelectPipe from './select-pipe';
 
 import data, { listType } from '../../data/data';
-import config from '../../data/config';
 import SelectList from './select-list';
+import InputSize from './input-width-length';
+import CalculateButton from './calculate';
+import SelectFrame from './select-frame';
 
 export type ListType = {
   value: string;
   label: string;
 };
 
+export type SizeType = {
+  width: string;
+  length: string;
+  errorWidth: string;
+  errorLength: string;
+};
+
 const Data = () => {
   const [material, setMaterial] = useState<string>('');
   const [pipe, setPipe] = useState<string>('');
   const [list, setList] = useState<string>('');
-
-  console.log(material, pipe, list);
+  const [frame, setFrame] = useState<string>('');
+  const [size, setSize] = useState<SizeType>({
+    width: '',
+    length: '',
+    errorWidth: '',
+    errorLength: '',
+  });
 
   const [filteredMaterial, setFilteredMaterial] = useState<ListType[]>([]);
 
@@ -34,16 +48,30 @@ const Data = () => {
 
   return (
     <>
-      <h3 className="text">Выберите материал:</h3>
-      <SelectMaterial setMaterial={setMaterial} />
-      {material && (
-        <>
-          <h3 className="text">Выберите лист:</h3>
-          <SelectList filteredMaterial={filteredMaterial} setList={setList} />
-        </>
-      )}
-      <h3 className="text">Выберите тип трубы:</h3>
-      <SelectPipe setPipe={setPipe} />
+      <div className="section">
+        <h3 className="text">Выберите материал:</h3>
+        <SelectMaterial setMaterial={setMaterial} />
+      </div>
+      <div className="section" style={{ display: material ? 'block' : 'none' }}>
+        {material && (
+          <>
+            <h3 className="text">Выберите лист:</h3>
+            <SelectList filteredMaterial={filteredMaterial} setList={setList} />
+          </>
+        )}
+      </div>
+      <div className="section">
+        <InputSize setSize={setSize} size={size} />
+      </div>
+      <div className="section">
+        <h3 className="text">Выберите тип трубы:</h3>
+        <SelectPipe setPipe={setPipe} />
+      </div>
+      {/* <CalculateButton material={material} pipe={pipe} list={list} size={size} /> */}
+      <div className="section">
+        <h3 className="text">Выберите прочность:</h3>
+        <SelectFrame setFrame={setFrame} />
+      </div>
     </>
   );
 };
