@@ -1,17 +1,17 @@
-type fixType = {
+export type fixType = {
   name: string;
   unit: string;
   price: number;
 };
 
-type pipeType = {
+export type pipeType = {
   name: string;
   unit: string;
   width: number;
   price: number;
 };
 
-type listType = {
+export type listType = {
   name: string;
   material: string;
   unit: string;

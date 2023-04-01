@@ -1,0 +1,48 @@
+@import '../colors.scss';
+
+.input-radio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .label {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .input-radio {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .radio-label {
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+      font-size: 18px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 15px;
+        height: 15px;
+        border: 2px solid $border;
+        border-radius: 50%;
+        background-color: inherit;
+      }
+      &:hover:before {
+        border-color: $text;
+      }
+    }
+
+    .input-radio:checked + .radio-label:before {
+      border-color: $text;
+      background-color: $text;
+    }
+  }
+}

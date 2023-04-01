@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
-interface FilterMaterialProps {
-  setFilterMaterial: (material: string) => void;
+interface SelectMaterialProps {
+  setMaterial: (material: string) => void;
 }
 
-function FilterMaterial(props: FilterMaterialProps) {
+function SelectMaterial(props: SelectMaterialProps) {
   const [selectedMaterial, setSelectedMaterial] = useState<string>('');
 
   const handleMaterialChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedMaterial(event.target.value);
-    props.setFilterMaterial(event.target.value);
+    props.setMaterial(event.target.value);
   };
 
   return (
@@ -18,8 +18,8 @@ function FilterMaterial(props: FilterMaterialProps) {
         <input
           className="input-radio"
           type="radio"
-          value="Пластик"
-          checked={selectedMaterial === 'Пластик'}
+          value="plastic"
+          checked={selectedMaterial === 'plastic'}
           onChange={handleMaterialChange}
         />
         <span className="radio-label text">Пластик</span>
@@ -29,8 +29,8 @@ function FilterMaterial(props: FilterMaterialProps) {
         <input
           className="input-radio"
           type="radio"
-          value="Метал"
-          checked={selectedMaterial === 'Метал'}
+          value="metal"
+          checked={selectedMaterial === 'metal'}
           onChange={handleMaterialChange}
         />
         <span className="radio-label text">Метал</span>
@@ -39,4 +39,4 @@ function FilterMaterial(props: FilterMaterialProps) {
   );
 }
 
-export default FilterMaterial;
+export default SelectMaterial;
