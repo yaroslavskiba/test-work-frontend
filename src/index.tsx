@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Data from './components/data/data';
 import './index.css';
+import Result from './components/result/result';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 export type ResultData = {
   pipeName: string;
@@ -24,7 +27,9 @@ const App = () => {
         <div className="data">
           <Data />
         </div>
-        <div className="result"></div>
+        <div className="result">
+          <Result />
+        </div>
       </main>
       <footer className="footer">
         <p className="footer-text">Павел Воробьёв</p>
@@ -35,7 +40,9 @@ const App = () => {
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
 );

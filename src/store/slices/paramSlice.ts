@@ -1,30 +1,34 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type paramType = {
-  material: string;
+  list: string;
   frame: string;
   pipe: string;
-  width: number;
-  length: number;
+  area: number | null;
+  sheetPrice: number | null;
+  pipePrice: number | null;
+  fixPrice: number | null;
 };
 
 const initialState: paramType = {
-  material: '',
-  frame: 'none',
+  list: '',
+  frame: '',
   pipe: '',
-  width: 0,
-  length: 0,
+  area: null,
+  sheetPrice: null,
+  pipePrice: null,
+  fixPrice: null,
 };
 
 const paramSlice = createSlice({
   name: 'param state',
   initialState,
   reducers: {
-    addMaterial: (state, action: PayloadAction<string>) => {
-      state.material = action.payload;
+    calculateResult: (state, action: PayloadAction<paramType>) => {
+      state = action.payload;
     },
   },
 });
 
-export const { addMaterial } = paramSlice.actions;
+export const { calculateResult } = paramSlice.actions;
 export default paramSlice.reducer;
