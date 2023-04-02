@@ -67,10 +67,10 @@ const Data = () => {
         <h3 className="text">Выберите тип трубы:</h3>
         <SelectPipe setPipe={setPipe} />
       </div>
-      {/* <CalculateButton material={material} pipe={pipe} list={list} size={size} /> */}
       <div className="section">
         <h3 className="text">Выберите прочность:</h3>
         <SelectFrame setFrame={setFrame} />
+        <CalculateButton material={material} pipe={pipe} list={list} size={size} frame={frame} />
       </div>
     </>
   );
