@@ -47,6 +47,7 @@ const ModalBasket = ({ setModalIsOpen }: Props) => {
                     <td>{item.fixAmount}</td>
                     <td>{item.fixPrice}</td>
                   </tr>
+                  <br />
                 </Fragment>
               );
             })}
