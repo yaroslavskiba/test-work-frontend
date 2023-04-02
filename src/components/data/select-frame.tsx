@@ -29,8 +29,8 @@ function SelectFrame(props: SelectMaterialProps) {
         <input
           className="input-radio"
           type="radio"
-          value="standart"
-          checked={selectedFrame === 'standart'}
+          value="standard"
+          checked={selectedFrame === 'standard'}
           onChange={handleFrameChange}
         />
         <span className="radio-label text">Стандартная</span>

@@ -39,6 +39,7 @@ const SelectList = (props: SelectListProps) => {
           option: (base, { isFocused }) => ({
             ...base,
             backgroundColor: isFocused ? '#f2f2f2' : 'inherit',
+            color: '#324040',
           }),
         }}
       />

@@ -66,6 +66,32 @@
   margin: 5px 0;
 }
 
+.result-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+}
+.result-table td,
+.result-table th {
+  border: 1px solid #676767;
+  padding: 5px;
+  text-align: center;
+}
+.result-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+.result-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.result-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 html,
 body {
   color: #324040;
