@@ -92,6 +92,48 @@
   gap: 10px;
 }
 
+.modal-window-component {
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  min-width: 360px;
+  width: 100%;
+  max-width: 567px;
+  background-color: #d9f2f2;
+  opacity: 1;
+  border: 1px solid #676767;
+}
+
+.modal-overlay-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: inherit;
+}
+
+.modal .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #676767;
+  font-size: 18px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.modal .modal-header .icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #676767;
+  width: 25px;
+  height: 25px;
+}
+
 html,
 body {
   color: #324040;
@@ -172,6 +214,27 @@ ul li {
   border: 1px solid #676767;
   padding: 5px;
   border-radius: 5px;
+}
+.header .icon-button {
+  right: -17%;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  border: 1px solid #676767;
+  background-color: inherit;
+  position: relative;
+}
+.header .icon-button .count-item-basket {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  font-size: 14px;
+  border: 1px solid #676767;
+  background-color: #deefef;
+  z-index: 1;
+  top: -8px;
+  right: -8px;
+  border-radius: 50%;
 }
 
 .main {

@@ -3,6 +3,7 @@
 @import './components/input-text.scss';
 @import './components/table.scss';
 @import './components/result-container.scss';
+@import './components/modal-basket.scss';
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 html,
@@ -85,6 +86,29 @@ ul li {
     border: 1px solid $border;
     padding: 5px;
     border-radius: 5px;
+  }
+
+  .icon-button {
+    right: -17%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    border: 1px solid $border;
+    background-color: inherit;
+    position: relative;
+
+    .count-item-basket {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      font-size: 14px;
+      border: 1px solid $border;
+      background-color: $main-bg;
+      z-index: 1;
+      top: -8px;
+      right: -8px;
+      border-radius: 50%;
+    }
   }
 }
 

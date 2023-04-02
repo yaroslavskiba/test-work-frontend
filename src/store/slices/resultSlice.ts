@@ -28,7 +28,7 @@ const initialState: paramType = {
   sum: null,
 };
 
-const paramSlice = createSlice({
+const resultSlice = createSlice({
   name: 'param state',
   initialState,
   reducers: {
@@ -38,5 +38,5 @@ const paramSlice = createSlice({
   },
 });
 
-export const { calculateResult } = paramSlice.actions;
-export default paramSlice.reducer;
+export const { calculateResult } = resultSlice.actions;
+export default resultSlice.reducer;

@@ -1,0 +1,45 @@
+@import '../colors.scss';
+
+.modal-window-component {
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  min-width: 360px;
+  width: 100%;
+  max-width: 567px;
+  background-color: $text-select;
+  opacity: 1;
+  border: 1px solid $border;
+}
+.modal-overlay-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: inherit;
+}
+
+.modal {
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $border;
+    font-size: 18px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    .icon-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $border;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

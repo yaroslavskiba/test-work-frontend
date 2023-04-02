@@ -1,9 +1,16 @@
 import React from 'react';
-import { useAppSelector } from '../../store/store';
+import { AppDispatch, useAppSelector } from '../../store/store';
+import { basketAdd } from '../../store/slices/basketSlice';
+import { useDispatch } from 'react-redux';
 
 const Result = () => {
   const isClicked = useAppSelector((state) => state.isClicked);
   const resaultCalculate = useAppSelector((state) => state.resultList);
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleClickAdd = () => {
+    dispatch(basketAdd(resaultCalculate));
+  };
 
   return (
     <>
@@ -43,7 +50,9 @@ const Result = () => {
 
             <p className="text">Итого: {resaultCalculate.sum} руб.</p>
 
-            <button className="main-button">Добавить в корзину</button>
+            <button className="main-button" onClick={handleClickAdd}>
+              Добавить в корзину
+            </button>
           </div>
         </>
       ) : (
